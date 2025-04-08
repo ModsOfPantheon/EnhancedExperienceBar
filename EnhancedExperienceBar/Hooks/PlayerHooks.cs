@@ -17,6 +17,7 @@ public class PlayerNetworkStart
         
         if (__instance.NetworkId.Value == EntityPlayerGameObject.LocalPlayerId.Value)
         {
+            Global.LastKnownPlayerXp = __instance.Experience.Total;
             BarEnhancer.OnLocalPlayerReady(__instance);
         }
     }
@@ -27,6 +28,16 @@ public class ExperienceSetHook
 {
     private static void Postfix(Experience.Logic __instance)
     {
+        if (Global.LastKnownPlayerXp == __instance.Total)
+        {
+            return;
+        }
+            
+        var difference = __instance.Total - Global.LastKnownPlayerXp;
+        Global.LastKnownPlayerXp = __instance.Total;
+        Global.LastDifference = difference;
+        Global.LastPercentGain = MathF.Round(difference / (float)__instance.CalculateExperienceRequiredToNextLevel() * 100, 2);
+        
         BarEnhancer.OnExperienceChanged(new PlayerExperience(__instance.Level, __instance.CalculateCurrentExperienceIntoLevel(), __instance.CalculateExperienceRequiredToNextLevel(), __instance.CalculatePercentThroughCurrentLevel()));
     }
 }
