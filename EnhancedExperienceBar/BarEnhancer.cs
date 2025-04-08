@@ -18,6 +18,9 @@ public static class BarEnhancer
 
     public static void OnExperienceBarReady(UIWindowPanel xpWindow)
     {
+        var ticksHolder = xpWindow.transform.GetChild(2);
+        ticksHolder.gameObject.active = !Global.DisableTicks;
+        
         var xpWindowRect = xpWindow.GetComponent<RectTransform>();
         xpWindowRect.sizeDelta = new Vector2(xpWindowRect.sizeDelta.x, xpWindowRect.sizeDelta.y + 10);
         
