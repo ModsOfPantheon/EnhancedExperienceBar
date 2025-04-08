@@ -8,7 +8,9 @@ public class ModMain : MelonMod
     {
         var category = MelonPreferences.CreateCategory("EnhancedExperienceBar");
 
-        Global.DisableTicks = category.CreateEntry("DisableTicks", false).Value;
+        Global.DisableTicks = category.CreateEntry("DisableTicks", true).Value;
+        Global.FontSize = category.CreateEntry("FontSize", 16).Value;
+        Global.ShowPercentGain = category.CreateEntry("ShowPercentGain", true).Value;
         
         category.SaveToFile(false);
     }
