@@ -10,4 +10,5 @@ public static class Global
     public static int LastKnownPlayerXp;
     public static bool ShowPercentGain;
     public static float LastPercentGain { get; set; }
+    public static bool ShowXpGain { get; set; }
 }

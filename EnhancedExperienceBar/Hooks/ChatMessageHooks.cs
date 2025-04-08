@@ -9,10 +9,12 @@ public class TestMessage
 {
     private static void Prefix(UIChatWindows __instance, string name, ref string message, ChatChannelType channel)
     {
-        if (channel == ChatChannelType.Experience &&
-            message.EndsWith("some experience.", StringComparison.InvariantCultureIgnoreCase))
+        if (channel == ChatChannelType.Experience && message.EndsWith("some experience.", StringComparison.InvariantCultureIgnoreCase))
         {
-            message = message.Replace("some", Global.LastDifference.ToString("N0"));
+            if (Global.ShowXpGain)
+            {
+                message = message.Replace("some", Global.LastDifference.ToString("N0"));    
+            }
             if (Global.ShowPercentGain)
             {
                 message += $" (+{Global.LastPercentGain:F2}%)";
