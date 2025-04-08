@@ -24,12 +24,12 @@ public static class BarEnhancer
         var xpWindowRect = xpWindow.GetComponent<RectTransform>();
         xpWindowRect.sizeDelta = new Vector2(xpWindowRect.sizeDelta.x, xpWindowRect.sizeDelta.y + 10);
         
-        var textGo = new GameObject("Test");
+        var textGo = new GameObject("XpLabel");
         textGo.transform.SetParent(xpWindow.transform);
         
         var textComponent = textGo.AddComponent<TextMeshProUGUI>();
         textComponent.text = "0 / 0";
-        textComponent.fontSize = 16;
+        textComponent.fontSize = Global.FontSize;
         textComponent.alignment = TextAlignmentOptions.Center;
         
         var textRect = textGo.GetComponent<RectTransform>();
