@@ -8,4 +8,4 @@ ShowXpGain (default true) - Replaces "some experience" with the exact experience
 
 ![Experience gain message example](https://github.com/user-attachments/assets/2a9f14b2-59f8-4467-8b93-e16a308f3be0)
 
-![](https://github.com/user-attachments/assets/8a678190-2753-48a5-82a0-281f9f202ac6)
+![Screenshot of the experience bar with no ticks and xp display](https://github.com/user-attachments/assets/8a678190-2753-48a5-82a0-281f9f202ac6)
